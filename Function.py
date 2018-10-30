@@ -39,6 +39,16 @@ def InitFunction(xlist: list, y0: float, BadYSign):
     # Remove duplicates and sort
     xlist = list(set(xlist))
     xlist.sort()
+    # Drop points near asymptotes to avoid overflow
+    i = 1
+    l = len(xlist) - 1
+    while i < l:
+        if IsXAsymptote(xlist[i]):
+            xlist.remove(xlist[i + 1])
+            xlist.remove(xlist[i - 1])
+            i -= 1
+            l -= 2
+        i += 1
     # Obtain y values
     Values = [y0]
     for i in range(1, len(xlist)):
