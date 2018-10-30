@@ -66,8 +66,8 @@ def TakeAsympotesValues(ylists: tuple):
         y_min = []
         L = len(ylists)
         for l in range(L):
-            y_max.append(max(TakeFloats(ylists[l])))
-            y_min.append(min(TakeFloats(ylists[l])))
+            y_max.append(max(TakeFloats(ylists[l])) + 1)
+            y_min.append(min(TakeFloats(ylists[l])) - 1)
         y_asympt = []
         for l in range(L):
             temp = []

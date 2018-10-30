@@ -1,7 +1,7 @@
-from math import floor
+from math import ceil
+from Plotter import Plot
 import Function as Funct
 import Methods
-from Plotter import Plot
 
 
 def TakeYList(method):
@@ -29,15 +29,14 @@ x0 = 0.
 y0 = 1.
 X = 9.5
 UseRange = True
-BadXSign = None
-BadYSign = None
+PlotAsymptotes = True
 if X < x0:
     print("Bad X!")
     exit(0)
 # Determine range and amount
 if UseRange:
     h = 1. / 128.
-    n = floor((X - x0) / h)
+    n = ceil((X - x0) / h)
 else:
     n = 19
     h = (X - x0) / n
@@ -46,8 +45,13 @@ xlist = Funct.InitFunction([x0 + h * i for i in range(n)], y0)
 if xlist is None:
     print("Bad x0!")
     exit(0)
+BadXSign = None
+BadYSign = None
 Analytical = Funct.Y
 YPrime = Funct.YPrime
+x0s = str(x0)
+signature = "plot for the IVP y(" + x0s + ") = " + str(y0) + \
+            " on [" + x0s + ", " + str(X) + "] with step range " + str(h)
 # Compute sets of y
 ylist_Analytical = TakeYList(Analytical)
 ylist_Euler = TakeYList(Methods.Euler)
@@ -56,12 +60,12 @@ ylist_RungeKutta = TakeYList(Methods.RungeKutta)
 # Init data to plot
 y_lists = (ylist_Analytical, ylist_Euler, ylist_ImpEuler, ylist_RungeKutta)
 names = ("Analytical", "Euler", "Improved Euler", "Runge-Kutta")
-x0s = str(x0)
-y0s = str(y0)
-Xs = str(X)
-hs = str(h)
-Name = "Function plot for the IVP y(" + x0s + ") = " + y0s + " on [" + x0s + ", " + Xs + "] with step range " + hs
-l = Funct.TakeAsympotesValues(y_lists)
-x_asympt = l[0]
-y_asympt = l[1]
-Plot(xlist, y_lists, names, Name, x_asympt, y_asympt)
+colors = ("rgb(51, 51, 204)", "rgb(204, 204, 51)", "rgb(51, 204, 51)", "rgb(204, 51, 51)")
+plotname = "Function " + signature
+if PlotAsymptotes:
+    l = Funct.TakeAsympotesValues(y_lists)
+    x_asympt = l[0]
+    y_asympt = l[1]
+    Plot(xlist, y_lists, names, colors, plotname, x_asympt, y_asympt)
+else:
+    Plot(xlist, y_lists, names, colors, plotname)

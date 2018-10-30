@@ -2,7 +2,7 @@ from plotly.graph_objs import Scatter as Curve
 from plotly.offline import plot
 
 
-def Plot(xlist: list, ylists: tuple, names: tuple, plotname: str, x_asympt=None, y_asympt=None):
+def Plot(xlist: list, ylists: tuple, names: tuple, colors: tuple, plotname: str, x_asympt=None, y_asympt=None):
     graphs = []
     asympt = not (x_asympt is None or y_asympt is None)
     for l in range(len(ylists)):
@@ -11,7 +11,8 @@ def Plot(xlist: list, ylists: tuple, names: tuple, plotname: str, x_asympt=None,
             y=ylists[l],
             mode="lines",
             name=names[l],
-            connectgaps=False
+            connectgaps=False,
+            line=dict(color=colors[l])
         ))
         if asympt:
             graphs.append(Curve(
