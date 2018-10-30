@@ -7,29 +7,20 @@ import Methods
 def TakeYList(method):
     ylist = [y0]
     for i in range(n - 1):
-        if Funct.IsXAsymptote(xlist[i]):
-            k = BadYSign
-        elif method == Analytical:
-            try:
-                k = Analytical(xlist[i])
-            except OverflowError:
-                k = BadYSign
-        elif ylist[i] is BadYSign:
+        if Funct.IsXAsymptote(xlist[i + 1]) or ylist[i] is BadYSign:
             k = BadYSign
         else:
-            try:
-                k = method(xlist[i], ylist[i], h, YPrime)
-            except OverflowError:
-                k = BadYSign
+            k = method(xlist[i], ylist[i], h, YPrime)
         ylist.append(k)
     return ylist
 
 
-x0 = 0.
+x0 = 0
 y0 = 1.
 X = 9.5
 UseRange = True
 PlotAsymptotes = True
+BadYSign = None
 if X < x0:
     print("Bad X!")
     exit(0)
@@ -41,19 +32,15 @@ else:
     n = 19
     h = (X - x0) / n
 # Init Function
-xlist = Funct.InitFunction([x0 + h * i for i in range(n)], y0)
+xlist = Funct.InitFunction([x0 + h * i for i in range(n)], y0, BadYSign)
 if xlist is None:
-    print("Bad x0!")
     exit(0)
-BadXSign = None
-BadYSign = None
-Analytical = Funct.Y
 YPrime = Funct.YPrime
 x0s = str(x0)
 signature = "plot for the IVP y(" + x0s + ") = " + str(y0) + \
             " on [" + x0s + ", " + str(X) + "] with step range " + str(h)
 # Compute sets of y for every method
-ylist_Analytical = TakeYList(Analytical)
+ylist_Analytical = Funct.Values
 ylist_Euler = TakeYList(Methods.Euler)
 ylist_ImpEuler = TakeYList(Methods.ImprovedEuler)
 ylist_RungeKutta = TakeYList(Methods.RungeKutta)

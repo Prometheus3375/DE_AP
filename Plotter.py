@@ -26,21 +26,9 @@ def Plot(xlist: list, ylists: tuple, names: tuple, colors: tuple, plotname: str,
                 line=dict(
                     color="rgb(204, 204, 204)",
                     dash="dash"),
-                visible="legendonly",
                 legendgroup=names[l],
+                showlegend=False,
                 hoverinfo="skip"
             ))
-    if asympt:
-        graphs.append(Curve(
-            x=x_asympt,
-            y=y_asympt[L],
-            mode="lines",
-            name="Asymptotes",
-            connectgaps=False,
-            line=dict(
-                    color="rgb(204, 204, 204)",
-                    dash="dash"),
-            hoverinfo="skip"
-        ))
     fig = dict(data=graphs, layout=dict(title=plotname))
     plot(fig, filename="plots\\" + plotname + ".html")
