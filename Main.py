@@ -52,7 +52,7 @@ YPrime = Funct.YPrime
 x0s = str(x0)
 signature = "plot for the IVP y(" + x0s + ") = " + str(y0) + \
             " on [" + x0s + ", " + str(X) + "] with step range " + str(h)
-# Compute sets of y
+# Compute sets of y for every method
 ylist_Analytical = TakeYList(Analytical)
 ylist_Euler = TakeYList(Methods.Euler)
 ylist_ImpEuler = TakeYList(Methods.ImprovedEuler)
@@ -63,7 +63,7 @@ names = ("Analytical", "Euler", "Improved Euler", "Runge-Kutta")
 colors = ("rgb(51, 51, 204)", "rgb(204, 204, 51)", "rgb(51, 204, 51)", "rgb(204, 51, 51)")
 plotname = "Function " + signature
 if PlotAsymptotes:
-    l = Funct.TakeAsympotesValues(y_lists)
+    l = Funct.TakeAsympotesToPlot(y_lists)
     x_asympt = l[0]
     y_asympt = l[1]
     Plot(xlist, y_lists, names, colors, plotname, x_asympt, y_asympt)

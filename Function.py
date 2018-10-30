@@ -30,7 +30,7 @@ def InitFunction(xlist: list, y0: float):
     k1 = ceil((x0 - v) / pi)
     k2 = ceil((X - v) / pi)
     tanx_asym = [v + pi * k for k in range(k1, k2)]
-    # asymptotes = []
+    # Append found values to asymptotes and xlist
     asymptotes.extend(cosx_asym)
     asymptotes.extend(tanx_asym)
     xlist.extend(asymptotes)
@@ -54,22 +54,28 @@ def Y(x: float):
     return 1. / (cos(x) * cbrt(C - 3 * tan(x)))
 
 
-def TakeAsympotesValues(ylists: tuple):
+def TakeAsympotesToPlot(ylists: tuple):
+    # Move this function to Plotter!!!
     if HasAsymptotes:
+        # Init x values to plot
         x_asympt = []
         points = len(asymptotes)
         for x in asymptotes:
             x_asympt.append(x)
             x_asympt.append(x)
             x_asympt.append(x)
+        # Determine max and min y values for every graph and global
         y_max = []
         y_min = []
         L = len(ylists)
         for l in range(L):
             y_max.append(max(TakeFloats(ylists[l])) + 1)
             y_min.append(min(TakeFloats(ylists[l])) - 1)
+        y_max.append(max(y_max))
+        y_min.append(min(y_min))
+        # Init y values to plot
         y_asympt = []
-        for l in range(L):
+        for l in range(L + 1):
             temp = []
             for i in range(points):
                 temp.append(y_min[l])

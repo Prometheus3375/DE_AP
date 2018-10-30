@@ -14,6 +14,6 @@ def TakeFloats(l: list):
     return (l[i] for i in range(len(l)) if l[i] is not None)
 
 
-def GetDate():
-    t = time.localtime(time.time())
-    return str(t[2]) + "." + str(t[1]) + "." + str(t[0]) + " " + str(t[3]) + "-" + str(t[4]) + "-" + str(t[5])
+# def GetDate():
+#     t = time.localtime(time.time())
+#     return str(t[2]) + "." + str(t[1]) + "." + str(t[0]) + " " + str(t[3]) + "-" + str(t[4]) + "-" + str(t[5])
