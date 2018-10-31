@@ -3,15 +3,15 @@ from math import pow
 
 
 def cbrt(a: float):
-    if a > 0:
+    if a > 0.:
         return pow(a, 1. / 3.)
-    if a < 0:
+    if a < 0.:
         return -pow(-a, 1. / 3.)
-    return 0
+    return 0.
 
 
-def TakeFloats(l: list):
-    return (l[i] for i in range(len(l)) if l[i] is not None)
+# def TakeFloats(l: list):
+#     return (l[i] for i in range(len(l)) if l[i] is not None)
 
 
 # def GetDate():
