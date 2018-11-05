@@ -5,8 +5,8 @@ from plotly.offline import plot
 ExponentFormat = "SI"
 
 
-def Plot(xlist: list, ylists: list, names: tuple, colors: tuple, plotname: str, xaxis: str, yaxes: str,
-         auto_open: bool):
+def Plot(xlist: list, ylists: list, names: list, colors: list, plotname: str, xaxis: str, yaxes: str,
+         auto_open: bool) -> None:
     graphs = []
     L = len(ylists)
     for l in range(L):
