@@ -61,7 +61,7 @@ def InitWindowContents() -> None:
     y0 = nextw.entry
     nextw = InitCond.AddLabel(text=Error_x0_y0_type, fg=ErrorTextColor, y=nextw.endy + 1)
     ivp_err = nextw.label
-    nextw = InitCond.AddPoint("X:", RealEntryWidth, def_X, y=nextw.endy + YSpaceBetweenPx + 1)
+    nextw = InitCond.AddPoint(" X:", RealEntryWidth, def_X, y=nextw.endy + YSpaceBetweenPx + 1)
     X = nextw.entry
     nextw = InitCond.AddLabel(text=Error_X_less_than_x0, fg=ErrorTextColor, y=nextw.endy + 1)
     X_err = nextw.label
