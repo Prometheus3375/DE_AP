@@ -2,7 +2,12 @@
 # import time
 
 
-# NaN = float("nan")
+def isfloat(s: str) -> bool:
+    try:
+        float(s)
+        return True
+    except ValueError:
+        return False
 
 
 # def cbrt(a: float):

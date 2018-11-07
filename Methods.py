@@ -18,11 +18,3 @@ def RungeKutta(xi: float, yi: float, h: float, yprime: Callable[[float, float], 
     k3 = yprime(xz, yi + h / 2. * k2)
     k4 = yprime(xi + h, yi + h * k3)
     return yi + h / 6. * (k1 + 2. * k2 + 2. * k3 + k4)
-
-
-# class NumericalMethod:
-#     def __init__(self, name: str, red: int, green: int, blue: int,
-#                  f: Callable[[float, float, float, Callable[[float, float], float]], float]):
-#         self.name = name
-#         self.color = "rgb(" + str(red) + ", " + str(green) + ", " + str(blue) + ")"
-#         self.NextY = f
