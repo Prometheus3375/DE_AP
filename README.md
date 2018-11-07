@@ -4,9 +4,9 @@
 2. After successful installation, open command prompt, type ```pip install plotly``` and press Enter. This will download and install PlotLy library.<br>
 3. After installation is finished, double click Main.py to launch application.
 ## Usage
-1. For now application is able to plot analytical and numerical solutions to ```y' = 4x - 2y```, absolute global truncation error of numerical methods and dependence of their errors from amount of steps.<br>
-2. Application supports Euler, Improved Euler and Runge-Kutta methods. Application plots them on one sheet, you can hide uninterested methods by clicking on its legend.
-3. All made plots are saved in ```plot``` directory that is in directory of application.
+1. For now application is able to plot analytical and numerical solutions of ```y' = 4x - 2y```, absolute global truncation error of numerical methods and dependence of their errors from amount of steps.
+2. Application supports Euler, Improved Euler and Runge-Kutta methods. Application plots them on one sheet, you can hide uninterested methods by clicking on its label in legend.
+3. All made plots are saved in ```<app_directory>/plots``` directory.
 4. Do not mark ```Plots of function for every N``` and ```Plots of absolute errors for every N``` for big ranges of amount of steps.
 ## Code
 1. Code is divided in several parts.
