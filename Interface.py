@@ -137,6 +137,7 @@ def InitInterface() -> None:
     X_err.config(text="")
     OneN_err.config(text="")
     MultipleN_err.config(text="")
+    root.mainloop()
 
 
 def ToggleStepAmountMode() -> None:

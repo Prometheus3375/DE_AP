@@ -1,7 +1,6 @@
-from Interface import InitInterface, root
+from Interface import InitInterface
 from Globals import InitData
 
 
 InitData()
 InitInterface()
-root.mainloop()
