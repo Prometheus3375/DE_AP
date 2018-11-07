@@ -149,7 +149,7 @@ def ToggleStepAmountMode() -> None:
 
 
 def ToggleErrorAutoOpen() -> None:
-    mode = OneN_PlotErrors_AutoOpenVar.get()
+    mode = OneN_PlotErrorsVar.get()
     ErrorsAutoOpen.Switch(mode)
 
 
