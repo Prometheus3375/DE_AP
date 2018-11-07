@@ -16,6 +16,6 @@
 5. ```Interface.py``` is dependent from ```Interfacelasses.py```, ```Globals.py``` and other files. It contains function that fills UI window and initializer of GUI.
 6. ```Methods.py``` contains functions of all supported numerical methods. Independent.
 7. ```Function.py``` contains initializer of IVP, functions of analytical solution for ```y' = 4x - 2y``` and its first derivative. Dependent from ```Globals.py``` and *math* library.
-8. ```Kernel.py``` is evaluated when user presses button Plot. This file proceeds every numerical method and obtains analytical solution for given initial solutions. Dependent from ```Globals.py```, ```Function.py``` and ```Plotter.py```.
+8. ```Kernel.py``` is evaluated when user presses button ```Plot```. This file proceeds every numerical method and obtains analytical solution for given initial solutions. Dependent from ```Globals.py```, ```Function.py``` and ```Plotter.py```.
 9. ```Plotter.py```is dependent from *plotly* library. Contains the main plotting function.
-10. An the last one, ```Extencions.py```. Independent, contains some additional functions that are not related to object of other files.
+10. Anв the last one, ```Extencions.py```. Independent, contains some additional functions that are not related to object of other files.
