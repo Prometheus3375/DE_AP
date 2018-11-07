@@ -84,7 +84,7 @@ class LabelExt(GUIObject):
 
 class StaticRadioButton(GUIObject):
     def __init__(self, x: int, y: int, text: str, enable: bool=True):
-        self.button = Radiobutton(text=text, state=Bool2State(enable))
+        self.button = Radiobutton(text=text, state=Bool2State(enable), takefocus=False)
         self.button.place(x=x, y=y)
         # Common
         GUIObject.__init__(self, x, y,
@@ -204,7 +204,7 @@ class FrameExt(GUIObject):
         return b
 
 
-def SimpleButton(x: int, y: int, text: str, width: int, height: int, command):
+def SimpleButton(x: int, y: int, text: str, width: int, height: int, command) -> None:
     button = Button(text=text, width=width, height=height, command=command)
     y -= button.winfo_reqheight() // 2
     button.place(x=x, y=y)

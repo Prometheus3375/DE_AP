@@ -2,14 +2,6 @@ from typing import Callable
 import Methods
 
 
-# Error messages
-Error_x0_y0_type = "x0 and y0 must be real numbers"
-Error_Overflow = "Overflow"
-Error_X_type = "X must be real number"
-Error_X_less_than_x0 = "X must be greater than x0"
-Error_OneN_type = "N must be positive integer"
-Error_MultipleN_type = "Range bounds must be positive integers"
-Error_MultipleN_invalid_range = "Invalid range"
 # Defaults
 def_x0 = str(0.)
 def_y0 = str(0.)
@@ -18,8 +10,6 @@ def_N = str(128)
 def_N0 = str(128)
 def_Nk = str(384)
 # Globals
-ErrorTextColor = "#cc3333"
-WindowTitle = "Simple Plotter"
 NaN = float("nan")
 AnalyticalName = "Analytical"
 AnalyticalColor = "rgb(51, 51, 204)"
