@@ -55,6 +55,7 @@ def Execute(x0: float, y0: float, X: float, N0: int, Nk: int,
                      "Absolute Global Truncation Error", ErrorsAutoOpen)
     if PlotDependence:
         MaxErrors = list(map(list, zip(*MaxErrors)))  # Transposes MaxErrors matrix
-        plotname = "Dependence of maximum absolute global truncation error from number of grid cells for " + signature
-        Plot(N, MaxErrors, GetMethodNames(), GetMethodColors(), plotname, "Number of Grid Cells",
+        plotname = "Dependence of maximum absolute global truncation error from number of steps in ["\
+                   + str(N0) + ", " + str(Nk) + "] for " + signature
+        Plot(N, MaxErrors, GetMethodNames(), GetMethodColors(), plotname, "Number of Steps",
              "Maximum Absolute Global Truncation Error", DependenceAutoOpen)
