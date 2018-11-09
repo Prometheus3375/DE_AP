@@ -105,7 +105,7 @@ def InitWindowContents() -> None:
                           labelwidget=Radiobutton(text=Text_Frame_OneN,
                                                   variable=OneNVar,
                                                   value=DefaultOneNValue,
-                                                  command=ToggleStepAmountMode),
+                                                  command=ToggleStepNumberMode),
                           enable=DefaultOneNValue)
     nextw = Frame_OneN.AddPoint(Text_N, IntEntryWidth, def_N)
     Entry_N = nextw.entry
@@ -116,7 +116,7 @@ def InitWindowContents() -> None:
                                       x=Frame_OneN.xint + BoxWidth, y=nextw.endy + 1)
     nextw = Frame_OneN.AddCheckButton(Text_PlotErrors, OneN_PlotErrorsVar,
                                       y=nextw.endy + 1,
-                                      command=ToggleErrorAutoOpen)
+                                      command=ToggleErrorsAutoOpen)
     CheckButton_OneN_ErrorsAutoOpen = Frame_OneN.AddCheckButton(Text_AutoOpen, OneN_PlotErrors_AutoOpenVar,
                                                                 parent=nextw)
     # Resize OneN_Frame
@@ -127,7 +127,7 @@ def InitWindowContents() -> None:
                                labelwidget=Radiobutton(text=Text_Frame_MultipleN,
                                                        variable=OneNVar,
                                                        value=DefaultMultipleNValue,
-                                                       command=ToggleStepAmountMode),
+                                                       command=ToggleStepNumberMode),
                                enable=DefaultMultipleNValue)
     nextw = Frame_MultipleN.AddPoint(Text_N0, IntEntryWidth, def_N0)
     Entry_N0 = nextw.entry
@@ -171,7 +171,7 @@ def InitInterface() -> None:
     root.mainloop()
 
 
-def ToggleStepAmountMode() -> None:
+def ToggleStepNumberMode() -> None:
     mode = OneNVar.get()
     Frame_OneN.Switch(mode)
     Frame_MultipleN.Switch(not mode)
@@ -179,7 +179,7 @@ def ToggleStepAmountMode() -> None:
     Label_Range_Error.config(text="")
 
 
-def ToggleErrorAutoOpen() -> None:
+def ToggleErrorsAutoOpen() -> None:
     mode = OneN_PlotErrorsVar.get()
     CheckButton_OneN_ErrorsAutoOpen.Switch(mode)
 
@@ -232,9 +232,11 @@ def Check() -> None:
             return
     Label_N_Error.config(text="")
     Label_Range_Error.config(text="")
+    # Check x0 and y0 for overflow
     if InitFunction(x0v, y0v):
         Label_IVP_Error.config(text=Error_Overflow)
         return
+    # Plot
     Execute(x0v, y0v, Xv, N0v, Nkv,
             mode or MultipleN_PlotValuesVar.get(), mode and OneN_PlotValues_AutoOpenVar.get(),
             (mode and OneN_PlotErrorsVar.get()) or ((not mode) and MultipleN_PlotErrorsVar.get()),

@@ -48,7 +48,8 @@ def Execute(x0: float, y0: float, X: float, N0: int, Nk: int,
         # Compute and plot errors if necessary
         if PlotErrors or PlotDependence:
             errors = [CalculateErrors(analytical, computed[i], l) for i in range(GetMethodsAmount())]
-            MaxErrors.append([max(errors[i]) for i in range(GetMethodsAmount())])
+            if PlotDependence:
+                MaxErrors.append([max(errors[i]) for i in range(GetMethodsAmount())])
             if PlotErrors:
                 plotname = "Dependence of absolute global truncation error for " + nis
                 Plot(xlist, errors, GetMethodNames(), GetMethodColors(), plotname, "X Axis",

@@ -2,6 +2,7 @@ from plotly.graph_objs import Scatter as Curve, Layout
 from plotly.offline import plot
 
 
+Path_SavePlot = "plots\\"
 ExponentFormat = "SI"
 
 
@@ -40,4 +41,4 @@ def Plot(xlist: list, ylists: list, names: list, colors: list, plotname: str, xa
                     )
                     )
     fig = dict(data=graphs, layout=layout)
-    plot(fig, filename="plots\\" + plotname + ".html", auto_open=auto_open)
+    plot(fig, filename=Path_SavePlot + plotname + ".html", auto_open=auto_open)
