@@ -26,4 +26,4 @@ The code is divided into several parts.
 8. `Plotter.py` depends on ***plotly*** library. It contains the main plotting function.
 9. And the last one, `Extencions.py`. It is independent and contains some additional functions that are not related to subjects of other files.
 ## Graphical illustration of project structure
-![File relationships](https://github.com/Prometheus3375/DE_PA/blob/master/File%20relationships.psd)
+![File relationships](https://github.com/Prometheus3375/DE_PA/blob/master/File%20relationships.jpg)
