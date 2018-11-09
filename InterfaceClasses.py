@@ -165,12 +165,10 @@ class FrameExt(GUIObject):
         self.frame.config(height=self.GetHeight())
 
     def ResizeXSimple(self) -> None:
-        self.endx = self.offx * 2 + max([w.endx for w in self.widgets])
-        self.frame.config(width=self.GetWidth())
+        self.ResizeX(max([w.endx for w in self.widgets]))
 
     def ResizeYSimple(self) -> None:
-        self.endy = self.offy // 2 + max([w.endy for w in self.widgets])
-        self.frame.config(height=self.GetHeight())
+        self.ResizeY(max([w.endy for w in self.widgets]))
 
     def Switch(self, enable: bool) -> None:
         for w in self.widgets:
