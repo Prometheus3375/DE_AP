@@ -25,7 +25,7 @@ The code is divided into several parts.
 7. `Kernel.py` is used when a user presses button `Plot`. It proceeds every numerical method and obtains analytical and numerical solutions for given initial conditions. The main function is `Execute(...)`. The file depends on `Globals.py`, `Function.py`, `Plotter.py` and ***typing*** library.
 8. `Plotter.py` depends on ***plotly*** library. It contains the main plotting function.
 9. And the last one, `Extencions.py`. It is independent and contains some additional functions that are not related to subjects of other files.
-## Graphical illustration of project structure
+### Graphical illustration of project structure
 ![](https://github.com/Prometheus3375/DE_PA/blob/master/File%20relationship.jpg)
-## Graphical illustration of classes relationship
+### Graphical illustration of classes relationship
 ![](https://github.com/Prometheus3375/DE_PA/blob/master/Classes%20relationship.jpg)
